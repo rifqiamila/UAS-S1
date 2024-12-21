@@ -1,5 +1,5 @@
 ## Apa itu string
-String merupakan kumpulan dari karakter yang berurutan, misalnya "Hello".\n
+String merupakan kumpulan dari karakter yang berurutan, misalnya "Hello".
 String dalam bahasa C akan disimpan sebagai array of characters. 
 Pada setiap string akan diakhiri dengan karakter khusus \0 yang menandai akhir string
 
@@ -37,3 +37,63 @@ fgets(warna, sizeof(warna), stdin); // pilih salah satu saja
 ```
 dengan begitu input spasi bisa ikut terbaca.
 %[^\n] akan membaca karakter sampai menemui newline
+
+## Cara menulis string ke output
+untuk mencetak string secara keseluruhan dapat menggunakan fungsi printf
+```c
+char warna[20];
+warna = "Ungu";
+printf("Aku tebak warna kesukaanmu %s\n", warna);
+```
+outputnya akan menjadi
+```plaintext
+Aku tebak warna kesukaanmu ungu
+```
+Atau kita bisa mengiterasikan setiap karakter hingga menemukan \0
+```c
+char warna[20];
+warna = "Ungu";
+printf("Aku tebak warna kesukaanmu %s\n", warna);
+for (int i = 0; warna[i] != '\0'; i++) {
+   printf("%c", warna[i]);
+}
+```
+output yang dihasilkan akan sama dengan output di atas
+
+## Contoh penerapan
+```c
+#include <stdio.h>
+
+int main() {
+    char warna[20];
+
+    printf("Apa warna kesukaanmu?\t");
+    scanf("%[^\n]", warna);
+
+    printf("\nAku tebak warna kesukaanmu %s\n", warna);
+    printf("Dapat dieja\n");
+
+    for(int i = 0; warna[i] != '\0'; i++) {
+        printf("%c\t karakter ke-%d\n", warna[i], i);
+    }
+
+    return 0;
+}
+```
+Tampilan output
+```plaintext
+Apa warna kesukaanmu?   ungu janda
+
+Aku tebak warna kesukaanmu ungu janda
+Dapat dieja
+u        karakter ke-0
+n        karakter ke-1
+g        karakter ke-2
+u        karakter ke-3
+         karakter ke-4
+j        karakter ke-5
+a        karakter ke-6
+n        karakter ke-7
+d        karakter ke-8
+a        karakter ke-9
+```
