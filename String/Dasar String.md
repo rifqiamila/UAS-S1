@@ -1,5 +1,5 @@
 ## Apa itu string
-String merupakan kumpulan dari karakter yang berurutan, misalnya "Hello".
+String merupakan kumpulan dari karakter yang berurutan, misalnya "Hello".\n
 String dalam bahasa C akan disimpan sebagai array of characters. 
 Pada setiap string akan diakhiri dengan karakter khusus \0 yang menandai akhir string
 
