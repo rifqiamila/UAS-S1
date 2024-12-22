@@ -84,3 +84,101 @@ Karakter: j
 Karakter: u
 ```
 ### Menggunakan pointer
+pointer dapat digunakan untuk iterasi tanpa indeks. Contoh kode yang akan menhasilkan output sama dengan iterasi dengan while loop
+```c
+#include <stdio.h>
+
+int main() {
+    char string[] = "martabak keju";
+    char *ptr = string;  // Pointer menunjuk ke elemen pertama string
+    while (*ptr != '\0') {
+        printf("Karakter: %c\n", *ptr);
+        ptr++;  // Pindah ke elemen berikutnya
+    }
+    
+    return 0;
+}
+```
+
+## Manipulasi dalam iterasi
+### Menghitung jumlah karakter
+Ada dua cara yang bisa dilakukan untuk menetahui jumlah karakter dalam suatu string, yaitu dengan menggunakan strlen atau tidak. 
+Menggunakan strlen:
+```c
+#include <stdio.h>
+#include <string.h> // menambahkan library string agar bisa menggunakan fungsi strlen
+
+int main() {
+    char string[] = "ungu janda";
+    
+    int panjangString = strlen(string);
+    printf("panjang string di atas adalah %d", panjangString);
+
+    return 0;
+}
+```
+Kita juga bisa menghitung langsung dengan looping tanpa menggunakan strlen
+```c
+#include <stdio.h>
+
+int main() {
+    char string[] = "ungu janda";
+    
+    int panjangString = 0; // nilai awal panjangString adalah 0
+
+    for (int i = 0; string[i] != '\0'; i++) {
+        panjangString++; // panjang string akan bertambah jika karakter belum habis atau tidak sama dengan \0
+    }
+
+    printf("panjang string di atas adalah %d", panjangString);
+
+    return 0;
+}
+```
+Kedua kode di atas akan menghasilkan output yang sama, yaitu:
+```plaintext
+panjang string di atas adalah 10
+```
+### Membalik string
+Untuk membalik suatu string, maka output yang ditampilkan dimulai dari paling belakang terlebih dahulu
+```c
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[] = "batu bata";
+    int panjangString = strlen(str);
+
+    printf("string yang dibalik: ");
+    for (int i = panjangString - 1; i >= 0; i--) {
+        printf("%c", str[i]);
+    }
+    printf("\n");
+    
+    return 0;
+}
+```
+Menghasilkan output
+```plaintext
+string yang dibalik: atab utab
+```
+### Mengubah huruf kecil ke huruf besar
+Untukmengkapitalkan suatu string sebenarnya bisa mengunakan fungsi toupper dengan library <cctype,h>. Namun juga bisa mengubah satu persatu karakter, menyesuaikan dengan tabel ASCII.
+```c
+#include <stdio.h>
+int main() {
+    char str[] = "jadi besar";
+
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (str[i] >= 'a' && str[i] <= 'z') { // Mengecek apakah huruf kecil
+            str[i] -= 32;  // Konversi ke huruf besar dengan tabel ASCII
+        }
+    }
+    printf("string modifikasi: %s\n", str);
+    return 0;
+}
+```
+Outputnya akan menjadi
+```plaintext
+string modifikasi: JADI BESAR
+```
