@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <windows.h>
 
 typedef struct Node
 {
@@ -29,6 +30,7 @@ void deleteStart(NodePtr *start, NodePtr *last);
 void deleteAfter(NodePtr *start, NodePtr *last);
 void deleteAt(NodePtr *start, NodePtr *last);
 void printList();
+void pause();
 
 // MAIN ============================================================
 int main() {
@@ -43,6 +45,12 @@ int main() {
 
 void clear() {
     system("CLS");
+}
+
+void pause() {
+    printf("\nTekan Enter untuk kembali ke menu utama...");
+    getchar();
+    getchar();
 }
 
 void mainMenu() {
@@ -74,8 +82,9 @@ void mainMenu() {
             break;
         default:
             return;
-            break;
         }
+
+        pause();
     } while (choice != 5);
 }
 
@@ -108,7 +117,6 @@ void insert() {
         break;
     default:
         return;
-        break;
     }
 }
 
@@ -156,24 +164,23 @@ void insertAfter(NodePtr *start, NodePtr *last, int value) {
         free(newNode);
         return;
     }
-    else {
-        temp = *start;
-        while(temp->value != after && temp != NULL) {
-            temp = temp->nextNode;
-        }
 
-        if (temp == NULL) {
-            printf("Data yang dimaksud tidak ditemukan\n");
-            free(newNode);
-            return;
-        }
+    temp = *start;
+    while (temp != NULL && temp->value != after) {
+        temp = temp->nextNode;
+    }
 
-        newNode->nextNode = temp->nextNode;
-        temp->nextNode = newNode;
+    if (temp == NULL) {
+        printf("Data yang dimaksud tidak ditemukan\n");
+        free(newNode);
+        return;
+    }
 
-        if (temp == *last) {
-            *last = newNode;
-        }
+    newNode->nextNode = temp->nextNode;
+    temp->nextNode = newNode;
+
+    if (temp == *last) {
+        *last = newNode;
     }
 }
 
@@ -206,7 +213,6 @@ void delete() {
         break;
     default:
         return;
-        break;
     }
 }
 
@@ -224,13 +230,13 @@ void deleteLast(NodePtr *start, NodePtr *last) {
     }
 
     temp = *start;
-    while(temp->nextNode != *last) {
+    while (temp->nextNode != *last) {
         temp = temp->nextNode;
     }
 
     *last = temp;
     (*last)->nextNode = NULL;
-    free(temp);
+    free(temp->nextNode);
 }
 
 void deleteStart(NodePtr *start, NodePtr *last) {
@@ -262,7 +268,7 @@ void deleteAfter(NodePtr *start, NodePtr *last) {
     scanf("%d", &after);
 
     temp = *start;
-    while(temp != 0 && temp->value != after) {
+    while (temp != NULL && temp->value != after) {
         temp = temp->nextNode;
     }
 
@@ -273,6 +279,11 @@ void deleteAfter(NodePtr *start, NodePtr *last) {
 
     NodePtr p = temp->nextNode;
     temp->nextNode = p->nextNode;
+    
+    if (p == *last) {
+        *last = temp;
+    }
+
     free(p);
 }
 
@@ -286,13 +297,18 @@ void deleteAt(NodePtr *start, NodePtr *last) {
     printf("Data yang ingin dihapus?\t");
     scanf("%d", &value);
 
+    if ((*start)->value == value) {
+        deleteStart(start, last);
+        return;
+    }
+
     temp = *start;
-    while(temp->nextNode != NULL && temp->nextNode->value != value) {
+    while (temp->nextNode != NULL && temp->nextNode->value != value) {
         temp = temp->nextNode;
     }
 
-    if (temp == NULL || temp->nextNode == NULL) {
-        printf("Tidak ada data yang bisa dihapus / data yang diminta tidak sesuai\n");
+    if (temp->nextNode == NULL) {
+        printf("Data yang dimaksud tidak ditemukan\n");
         return;
     }
 
@@ -319,16 +335,14 @@ void check(NodePtr *start, NodePtr *last) {
     scanf("%d", &value);
 
     temp = *start;
-    while (temp->nextNode != NULL && temp->value != value) {
+    while (temp != NULL && temp->value != value) {
         temp = temp->nextNode;
     }
 
-    if (temp->nextNode == NULL) {
+    if (temp == NULL) {
         printf("%d tidak terdapat dalam linked list\n", value);
-        return;
-    }
-    else {
-        printf("%d ditemukan dalam linked list\n");
+    } else {
+        printf("%d ditemukan dalam linked list\n", value);
     }
 }
 
@@ -346,4 +360,3 @@ void printList() {
     }
     printf("NULL\n");
 }
-
