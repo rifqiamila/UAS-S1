@@ -26,6 +26,7 @@ tipe_data nama_array[ukuran];
 ```
 int angka[5];  // Array untuk menyimpan 5 bilangan bulat
 ```
+note; ingat array dimulai dari indeks ke-0
 
 #### **Inisialisasi Array**
 Array dapat diinisialisasi saat deklarasi:
@@ -58,3 +59,4 @@ angka[1] = 2;  // Elemen kedua
        {4, 5, 6}
    };
    ```
+   note; tipeData namaVariabel[baris][kolom];
