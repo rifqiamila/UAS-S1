@@ -92,13 +92,15 @@ int main() {
 ```
 
 **Penjelasan:**
-- **`Shape`** adalah kelas abstrak karena memiliki fungsi virtual murni (`draw()`), yang harus diimplementasikan oleh kelas turunan.
+- **`Shape`** adalah kelas abstrak karena memiliki fungsi virtual murni (`draw()`), yang HARUS diimplementasikan oleh kelas turunan.
 - **`Circle`** dan **`Square`** mengimplementasikan metode `draw()` mereka sendiri, menunjukkan cara konkret menggambar.
 
 ---
 
 ### **3. Inheritance (Pewarisan)**
 Pewarisan adalah mekanisme yang memungkinkan sebuah kelas untuk mewarisi properti dan perilaku (data dan metode) dari kelas lain. Hal ini memungkinkan **reusability** (penggunaan kembali) kode dan membuat hierarki kelas.
+
+Simpelnya, turunannya bisa pakai fungsi yang ada di kelas induk
 
 #### **Contoh Pewarisan**:
 ```cpp
