@@ -1,6 +1,6 @@
 ###***Contoh program perkalian matriks***###
 ---
-```
+```c
 // Online C compiler to run C program online
 #include <stdio.h>
 #include <string.h>
@@ -64,7 +64,7 @@ int main() {
 
 #***Penjumlahan Matriks***###
 ---
-```
+```c
 // Online C compiler to run C program online
 #include <stdio.h>
 #include <string.h>
