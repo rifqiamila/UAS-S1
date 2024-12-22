@@ -1,0 +1,72 @@
+Note; ini cuma buat latihan, bukan prediksi dan sebagainya. Soal disusun berdasarkan RPS Mata Kuliah Konsep Pemrogramman
+
+Berikut adalah soal-soal untuk masing-masing topik yang diminta. Setiap soal dirancang agar kamu dapat memahami konsep dan penerapannya.
+
+---
+
+### **(1) Algoritma Backtracking**
+**Soal:**  
+Diberikan sebuah papan catur berukuran \( N \times N \). Buatlah algoritma untuk menyelesaikan masalah **N-Queens** menggunakan backtracking, yaitu menempatkan \( N \) ratu di papan catur sehingga tidak ada dua ratu yang saling menyerang (baik secara horizontal, vertikal, maupun diagonal).
+
+**Pertanyaan:**
+1. Tunjukkan semua kemungkinan solusi untuk \( N = 4 \).
+2. Implementasikan solusi menggunakan algoritma backtracking.
+
+---
+
+### **(2) Algoritma Branch and Bound**
+**Soal:**  
+Sebuah perusahaan logistik memiliki masalah untuk menentukan jalur optimal untuk mengangkut barang dari kota awal ke kota tujuan. Jarak antar kota diberikan dalam bentuk matriks jarak. Buatlah algoritma **Branch and Bound** untuk menyelesaikan masalah **Travelling Salesman Problem (TSP)** dengan mencari jalur dengan total jarak minimum.
+
+**Contoh Matriks Jarak (4 Kota):**
+|   | A | B | C | D |
+|---|---|---|---|---|
+| A | 0 | 10 | 15 | 20 |
+| B | 10 | 0 | 35 | 25 |
+| C | 15 | 35 | 0 | 30 |
+| D | 20 | 25 | 30 | 0 |
+
+**Pertanyaan:**
+1. Temukan jalur optimal untuk kasus ini menggunakan algoritma Branch and Bound.
+2. Gambarkan bagaimana algoritma mengevaluasi node di pohon solusi.
+
+---
+
+### **(3) Algoritma Route Planning**
+**Soal:**  
+Anda bertugas untuk membuat algoritma perencanaan rute optimal untuk layanan pengantaran paket. Diberikan graf berbobot yang merepresentasikan kota dan jalan di antara mereka. Bobot pada graf menunjukkan jarak antar kota. Buatlah algoritma untuk mencari rute terpendek dari kota asal ke beberapa kota tujuan.
+
+**Graf (Bobot dalam Km):**
+```
+A ---5--- B
+|         |
+7         3
+|         |
+C ---2--- D
+```
+
+**Pertanyaan:**
+1. Gunakan algoritma Dijkstra untuk menemukan rute terpendek dari kota A ke kota lainnya.
+2. Tunjukkan langkah-langkah yang diambil algoritma beserta hasil akhirnya.
+
+---
+
+### **(4) Persoalan Program Dinamis**
+**Soal:**  
+Seorang pedagang memiliki kapasitas tas sebesar \( W \), dan tersedia \( N \) barang, masing-masing dengan berat \( w[i] \) dan nilai \( v[i] \). Buatlah algoritma program dinamis untuk menyelesaikan masalah **Knapsack Problem**, yaitu mencari nilai maksimum barang yang dapat dimasukkan ke dalam tas.
+
+**Contoh Data Barang:**
+| Barang | Berat (\( w[i] \)) | Nilai (\( v[i] \)) |
+|--------|--------------------|--------------------|
+| 1      | 1                  | 1                  |
+| 2      | 2                  | 6                  |
+| 3      | 3                  | 10                 |
+| 4      | 2                  | 7                  |
+
+**Kapastitas Tas: \( W = 5 \)**
+
+**Pertanyaan:**
+1. Tentukan nilai maksimum yang dapat diperoleh menggunakan algoritma program dinamis.
+2. Tunjukkan tabel penyelesaian (tabel DP) dan langkah-langkah penyelesaian.
+
+---
