@@ -163,7 +163,7 @@ Menghasilkan output
 string yang dibalik: atab utab
 ```
 ### Mengubah huruf kecil ke huruf besar
-Untukmengkapitalkan suatu string sebenarnya bisa mengunakan fungsi toupper dengan library <cctype,h>. Namun juga bisa mengubah satu persatu karakter, menyesuaikan dengan tabel ASCII.
+Untuk mengkapitalkan suatu string sebenarnya bisa mengunakan fungsi toupper dengan library <cctype,h>. Namun juga bisa mengubah satu persatu karakter, menyesuaikan dengan tabel ASCII.
 ```c
 #include <stdio.h>
 int main() {
